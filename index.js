@@ -9,11 +9,12 @@ let info = {
        favoriteMusician: "Callum Gahram"
     }
 };
-let router = express.Router();
 
 app.listen(port, function() {
     console.log("Listening on :%d", port);
 });
+
+let router = express.Router();
 
 router.get("/",(req,res) => {
     res.sendFile(path.join(__dirname+"/html/index.html"));
@@ -24,10 +25,16 @@ router.get("/about",(req,res) => {
 });
 
 router.get("/password/generate/",(req,res) => {
-    let length = req.query /*generate password here*/
+    let length = req.query
+    console.log(length)
     res.send(length);
 });
 
-router.post("/password",(req,res) => {
+//router.post("/password",(req,res) => {
     
-});
+//});
+
+app.use("/",router);
+app.use("/about",router);
+app.use("/password/generate/",router);
+app.use("/password",router);
