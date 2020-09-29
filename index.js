@@ -1,4 +1,5 @@
 let express = require('express');
+let path = require('path')
 let bodyParser = require('body-parser');
 let port = 8080;
 let app = express();
@@ -8,28 +9,25 @@ let info = {
        favoriteMusician: "Callum Gahram"
     }
 };
-
-app.use(bodyParser.json())
-
-app.use('/', routes);
+let router = express.Router();
 
 app.listen(port, function() {
     console.log("Listening on :%d", port);
 });
 
-//routes
-let routes = express.Router();
+router.get("/",(req,res) => {
+    res.sendFile(path.join(__dirname+"/html/index.html"));
+});
 
-routes.get('/companies', companies.root);
+router.get("/about",(req,res) => {
+    res.send(info);
+});
 
-routes.get('/companies/:companyName', companies.name)
+router.get("/password/generate/",(req,res) => {
+    let length = req.query /*generate password here*/
+    res.send(length);
+});
 
-routes.get('/companies/:companyName/employees', companies.employees)
-
-routes.route('/companies/:companyName/employees/:employeeName')
-    .get(companies.singleEmployee)
-    .put(companies.createEmployee)
-    .delete(companies.removeEmployee)
-
-module.exports = routes;
-
+router.post("/password",(req,res) => {
+    
+});
