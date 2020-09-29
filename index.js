@@ -1,10 +1,13 @@
 let express = require('express');
 let bodyParser = require('body-parser');
-let routes = require('./lib/routes');
-
-let port = 6061;
-
+let port = 8080;
 let app = express();
+let info = {
+    "Brandon Young":{
+       email: "youngbt@iu.edu",
+       favoriteMusician: "Callum Gahram"
+    }
+};
 
 app.use(bodyParser.json())
 
@@ -15,9 +18,6 @@ app.listen(port, function() {
 });
 
 //routes
--let express = require('express');
-let companies = require('./controllers/companies');
-
 let routes = express.Router();
 
 routes.get('/companies', companies.root);

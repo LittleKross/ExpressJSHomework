@@ -1,0 +1,19 @@
+{
+  "name": "expressjshomework",
+  "version": "1.0.0",
+  "description": "homework for P422",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LittleKross47/ExpressJSHomework.git"
+  },
+  "author": "Brandon Yonug",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LittleKross47/ExpressJSHomework/issues"
+  },
+  "homepage": "https://github.com/LittleKross47/ExpressJSHomework#readme"
+}
